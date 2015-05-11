@@ -15,14 +15,12 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ConsultarTiempoReal {
 	private WebDriver driver;
-	private String baseUrl;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 	Firefox fox = new Firefox();
 
 	@Before
 	public void setUp() throws Exception {
-
 		driver = fox.getDriver();
 	}
 
@@ -38,6 +36,7 @@ public class ConsultarTiempoReal {
 
 	@After
 	public void tearDown() throws Exception {
+		
 		//driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
