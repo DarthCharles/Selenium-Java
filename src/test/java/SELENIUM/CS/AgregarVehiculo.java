@@ -18,18 +18,20 @@ public class AgregarVehiculo {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  Firefox fox = new Firefox();
+  private Firefox fox = new Firefox(); 
 
 
   @Before
   public void setUp() throws Exception {
-		driver = fox.getDriver();
+	  
+		driver = new FirefoxDriver();;
+		fox.initDriver(driver);
   }
 
   @Test
   public void testAgregarVehiculo() throws Exception {
-    fox.login();
-    driver.findElement(By.id("listVehiculos")).click();
+    fox.getLogin(driver);
+	driver.findElement(By.cssSelector(".nav-sidebar > li:nth-child(3) > a:nth-child(1)")).click();
     driver.findElement(By.cssSelector("#listilla li:nth-child(3) a")).click();
     driver.findElement(By.id("serialTxt")).clear();
     driver.findElement(By.id("serialTxt")).sendKeys("1726152");
@@ -46,7 +48,9 @@ public class AgregarVehiculo {
     driver.findElement(By.id("matriculaETxt")).clear();
     driver.findElement(By.id("matriculaETxt")).sendKeys("ok");
     driver.findElement(By.id("insertBtn")).click();
-    driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+    driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+    driver.findElement(By.id("rb3")).click();
+    driver.findElement(By.id("btnConsultGpo1")).click();
   }
 
   @After
