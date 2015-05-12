@@ -21,14 +21,13 @@ public class CrearRuta {
 
   @Before
   public void setUp() throws Exception {
-    driver = fox.getDriver();
-    baseUrl = "http://csipro.isi.uson.mx/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver = new FirefoxDriver();
+		fox.initDriver(driver);
   }
 
   @Test
   public void testCrearRuta() throws Exception {
-	fox.login();
+	fox.getLogin(driver);
     driver.findElement(By.id("listRutas")).click();
     driver.findElement(By.cssSelector("#listilla33 li:nth-child(1) a")).click();
     driver.findElement(By.cssSelector("a[href='RutasAgregar.aspx']")).click();
