@@ -29,7 +29,7 @@ public class CrearMuralAlternativo {
 
   @Test
   public void testModificarGeo() throws Exception {
-	  fox.getLogin(driver);
+	  fox.getMural(driver);
   }
 
   @After
