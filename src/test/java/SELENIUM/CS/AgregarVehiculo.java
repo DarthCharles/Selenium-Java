@@ -24,7 +24,7 @@ public class AgregarVehiculo {
   @Before
   public void setUp() throws Exception {
 	  
-		driver = new FirefoxDriver();;
+		driver = new FirefoxDriver();
 		fox.initDriver(driver);
   }
 
