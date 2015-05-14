@@ -9,16 +9,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Firefox {
 
 
-	private String baseUrl = "http://csipro.isi.uson.mx/";
+	private String baseUrl = "https://mural.ly/";
 
 
 	public void getLogin(WebDriver driver) {
-		driver.get(baseUrl + "/login.aspx");
-		driver.findElement(By.id("txtemail")).clear();
-		driver.findElement(By.id("txtemail")).sendKeys("Csipro.dev@gmail.com");
-		driver.findElement(By.id("txtpass")).clear();
-		driver.findElement(By.id("txtpass")).sendKeys("csipro");
-		driver.findElement(By.id("Button1")).click();
+		  driver.get(baseUrl + "/");
+		    driver.findElement(By.linkText("Sign in")).click();
+		    driver.findElement(By.name("email")).clear();
+		    driver.findElement(By.name("email")).sendKeys("cds.pruebas@gmail.com");
+		    driver.findElement(By.xpath("//button")).click();
+		    driver.findElement(By.id("Passwd")).clear();
+		    driver.findElement(By.id("Passwd")).sendKeys("calidad123");
+		    driver.findElement(By.id("signIn")).click();
 	}
 	public void initDriver(WebDriver driver){
 		driver.manage().window().maximize();
