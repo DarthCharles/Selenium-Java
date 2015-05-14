@@ -24,14 +24,6 @@ public class Firefox {
 		  
 	}
 	
-	public void getMural(WebDriver driver){
-		this.getLogin(driver);
-
-		    driver.findElement(By.cssSelector("div.mural-thumb-img-container > a > img")).click();
-		    driver.findElement(By.cssSelector("li.black.selected")).click();
-		    driver.findElement(By.cssSelector("ul.filters > li.selected")).click();
-	}
-	
 	public void initDriver(WebDriver driver){
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
