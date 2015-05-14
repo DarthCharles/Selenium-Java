@@ -13,8 +13,8 @@ public class Firefox {
 
 
 	public void getLogin(WebDriver driver) {
-		  driver.get(baseUrl + "/");
-		    driver.findElement(By.linkText("Sign in")).click();
+		  driver.get(baseUrl);
+		    driver.findElement(By.cssSelector("a.login:nth-child(5)")).click();   
 		    driver.findElement(By.name("email")).clear();
 		    driver.findElement(By.name("email")).sendKeys("cds.pruebas@gmail.com");
 		    driver.findElement(By.xpath("//button")).click();
