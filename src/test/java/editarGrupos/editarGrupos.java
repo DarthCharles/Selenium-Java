@@ -1,4 +1,4 @@
-package nuevaEntrada;
+package editarGrupos;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,17 +10,17 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class NuevaEntrada {
+public class editarGrupos {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private Firefox fox = new Firefox();
-
 
 	@Before
 	public void setUp() throws Exception {
@@ -29,16 +29,16 @@ public class NuevaEntrada {
 	}
 
 	@Test
-	public void testAgregarEntrada() throws Exception {
+	public void testEditGroups() throws Exception {
 		fox.getLogin(driver);
-		driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
-		driver.findElement(By.cssSelector(".w-cs-menu--primary")).click();
-		driver.findElement(By.linkText("Post to journal")).click();
-		driver.findElement(By.id("subject")).clear();
-		driver.findElement(By.id("subject")).sendKeys("Nueva Entrada");
-		driver.findElement(By.id("body")).clear();
-		driver.findElement(By.id("body")).sendKeys("Hola esta es una nueva!!!");
-		driver.findElement(By.name("action:update")).click();
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.cssSelector("li.s-nav-item:nth-child(2) > a:nth-child(1)"))).build().perform();
+		driver.findElement(By.cssSelector(".s-nav-item-editgroups > a:nth-child(1)")).click();
+		new Select(driver.findElement(By.id("list_groups"))).selectByVisibleText("Familia");
+		// ERROR: Caught exception [ERROR: Unsupported command [answerOnNextPrompt | Familia | ]]
+		driver.findElement(By.id("renameGroup")).click();
+		// ERROR: Caught exception [ERROR: Unsupported command [getPrompt |  | ]]
+		driver.findElement(By.xpath("//button[@value='Guardar cambios']")).click();
 	}
 
 	@After

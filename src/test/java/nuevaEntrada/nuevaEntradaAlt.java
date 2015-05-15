@@ -1,6 +1,6 @@
 package nuevaEntrada;
 
-public class nuevaEntradaAlt {
+public class NuevaEntradaAlt {
 
 }
 
