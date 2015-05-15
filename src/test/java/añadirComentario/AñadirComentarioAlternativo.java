@@ -1,4 +1,4 @@
-package imagenesUsuarios;
+package añadirComentario;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class ImagenesUsuariosNormal {
+public class AñadirComentarioAlternativo {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -31,18 +31,12 @@ public class ImagenesUsuariosNormal {
   }
 
   @Test
-  public void testImagenesUsuariosNormal() throws Exception {
-	fox.getLogin(driver);
-	
-	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
-	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
+  public void testAnAdirComentario() throws Exception {
+		fox.getLogin(driver);
 
-    driver.findElement(By.linkText("Manage Userpics")).click();
-    driver.findElement(By.id("radio_url")).click();
-    driver.findElement(By.name("urlpic")).clear();
-    driver.findElement(By.name("urlpic")).sendKeys("http://upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png");
-    driver.findElement(By.xpath("//p[@id='submit_wrapper']/button")).click();
-    driver.findElement(By.id("createbtn")).click();
+    driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
+    driver.findElement(By.xpath("//*[@id='entry-pruebascalidad-1600']/footer/div[1]/ul/li[2]/a/span")).click();
+    driver.findElement(By.xpath("//button[@name='submitpost']")).click();
   }
 
   @After

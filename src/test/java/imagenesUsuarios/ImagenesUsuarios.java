@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class ImagenesUsuariosAlternativo {
+public class ImagenesUsuarios {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -35,8 +35,9 @@ public class ImagenesUsuariosAlternativo {
 	fox.getLogin(driver);
 	driver.findElement(By.cssSelector("span.s-nav-rootlink-blog-title")).click();
 	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
-    driver.findElement(By.xpath("//*[@id='upload_wrapper']/div[2]/input[2]")).sendKeys("prueba");
+    driver.findElement(By.xpath("//*[@id='upload_wrapper']/div[2]/input[2]")).sendKeys("http://upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png");
     driver.findElement(By.xpath("//p[@id='submit_wrapper']/button")).click();
+    driver.findElement(By.id("createbtn")).click();
   }
 
   @After

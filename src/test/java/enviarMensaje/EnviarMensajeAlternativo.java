@@ -1,4 +1,4 @@
-package imagenesUsuarios;
+package enviarMensaje;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -14,12 +14,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class ImagenesUsuariosAlternativo {
+public class EnviarMensajeAlternativo {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
+
 
   @Before
   public void setUp() throws Exception {
@@ -31,12 +32,16 @@ public class ImagenesUsuariosAlternativo {
   }
 
   @Test
-  public void testImagenesUsuariosNormal() throws Exception {
-	fox.getLogin(driver);
-	driver.findElement(By.cssSelector("span.s-nav-rootlink-blog-title")).click();
-	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
-    driver.findElement(By.xpath("//*[@id='upload_wrapper']/div[2]/input[2]")).sendKeys("prueba");
-    driver.findElement(By.xpath("//p[@id='submit_wrapper']/button")).click();
+  public void testEnviarMensaje() throws Exception {
+		fox.getLogin(driver);
+
+    driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav[2]/ul/li[2]/a/span")).click();
+    driver.findElement(By.xpath("//input[@value='Mensaje Nuevo']")).click();
+    driver.findElement(By.xpath("//input[@name='msg_subject']")).clear();
+    driver.findElement(By.xpath("//input[@name='msg_subject']")).sendKeys("Prueba");
+    driver.findElement(By.xpath("//textarea[@name='msg_body']")).clear();
+    driver.findElement(By.xpath("//textarea[@name='msg_body']")).sendKeys("Prueba");
+    driver.findElement(By.xpath("//button[@value='Send']")).click();
   }
 
   @After
