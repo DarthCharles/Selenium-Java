@@ -2,8 +2,6 @@ package sauceLabs;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;

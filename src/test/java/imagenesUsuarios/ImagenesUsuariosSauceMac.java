@@ -1,8 +1,8 @@
-package añadirComentario;
+package imagenesUsuarios;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-import sauceLabs.*;
+
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -12,32 +12,35 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import sauceLabs.SauceTests;
 import SELENIUM.CS.Firefox;
 
-public class AñadirComentarioSauceMac {
+public class ImagenesUsuariosSauceMac {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests("Añadir Comentario Mac Safari");
-  
+  private SauceTests sauce = new SauceTests("Enviar mensaje Mac Safari");
+
+
   @Before
   public void setUp() throws Exception {
-    driver = sauce.MacSafariDriver();
+	driver = sauce.MacSafariDriver();
     baseUrl = "http://www.livejournal.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     fox.initDriver(driver);
+
   }
 
   @Test
-  public void testAnAdirComentario() throws Exception {
-		fox.getLogin(driver);
-
-    driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
-    driver.findElement(By.xpath("//*[@id='entry-pruebascalidad-1600']/footer/div[1]/ul/li[2]/a/span")).click();
-    driver.findElement(By.xpath("//textarea[@id='body']")).sendKeys("Hola!");
-    driver.findElement(By.xpath("//button[@name='submitpost']")).click();
+  public void testImagenesUsuariosNormal() throws Exception {
+	fox.getLogin(driver);
+	driver.findElement(By.cssSelector("span.s-nav-rootlink-blog-title")).click();
+	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
+    driver.findElement(By.xpath("//*[@id='upload_wrapper']/div[2]/input[2]")).sendKeys("http://upload.wikimedia.org/wikipedia/en/5/5c/Seleniumlogo.png");
+    driver.findElement(By.xpath("//p[@id='submit_wrapper']/button")).click();
+    driver.findElement(By.id("createbtn")).click();
   }
 
   @After
