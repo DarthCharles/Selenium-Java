@@ -1,4 +1,4 @@
-package editarGrupos;
+package nuevaEntrada;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,35 +10,39 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import sauceLabs.SauceTests;
 import SELENIUM.CS.CustomDriver;
 
-public class EditarGruposAlt {
+
+
+public class NuevaEntradaSauceMac {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private CustomDriver fox = new CustomDriver();
+	private SauceTests sauce = new SauceTests("Nueva Entrada OSX");
+
+
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
-		fox.initDriver(driver);
+		driver = sauce.MacSafariDriver();
+	    fox.initDriver(driver);
 	}
 
 	@Test
-	public void testEditGroups() throws Exception {
+	public void testAgregarEntrada() throws Exception {
 		fox.getLogin(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.cssSelector("li.s-nav-item:nth-child(2) > a:nth-child(1)"))).build().perform();
-		driver.findElement(By.cssSelector(".s-nav-item-editgroups > a:nth-child(1)")).click();
-		new Select(driver.findElement(By.id("list_groups"))).selectByVisibleText("Familia");
-		// ERROR: Caught exception [ERROR: Unsupported command [answerOnNextPrompt | Familia | ]]
-		driver.findElement(By.id("renameGroup")).click();
-		// ERROR: Caught exception [ERROR: Unsupported command [getPrompt |  | ]]
-		driver.findElement(By.xpath("//button[@value='Guardar cambios']")).click();
+		driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
+        driver.get(fox.getBaseUrl() + "/update.bml");
+		driver.findElement(By.id("subject")).clear();
+		driver.findElement(By.id("subject")).sendKeys("Nueva Entrada6");
+		driver.findElement(By.id("body")).clear();
+		driver.findElement(By.id("body")).sendKeys("Hola esta es una nueva!!!");
+		driver.findElement(By.name("action:update")).click();
 	}
 
 	@After

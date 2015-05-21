@@ -1,4 +1,4 @@
-package editarGrupos;
+package editarPerfil;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -10,35 +10,43 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import sauceLabs.SauceTests;
 import SELENIUM.CS.CustomDriver;
 
-public class EditarGruposAlt {
+public class EditarPerfilSauceMac {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private CustomDriver fox = new CustomDriver();
+	private SauceTests sauce = new SauceTests("Editar Perfil OSX");
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
-		fox.initDriver(driver);
+		driver = sauce.MacSafariDriver();
+	    fox.initDriver(driver);
 	}
 
 	@Test
-	public void testEditGroups() throws Exception {
+	public void testEditarPerfil() throws Exception {
 		fox.getLogin(driver);
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.cssSelector("li.s-nav-item:nth-child(2) > a:nth-child(1)"))).build().perform();
-		driver.findElement(By.cssSelector(".s-nav-item-editgroups > a:nth-child(1)")).click();
-		new Select(driver.findElement(By.id("list_groups"))).selectByVisibleText("Familia");
-		// ERROR: Caught exception [ERROR: Unsupported command [answerOnNextPrompt | Familia | ]]
-		driver.findElement(By.id("renameGroup")).click();
-		// ERROR: Caught exception [ERROR: Unsupported command [getPrompt |  | ]]
-		driver.findElement(By.xpath("//button[@value='Guardar cambios']")).click();
+		driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
+	    driver.get(fox.getBaseUrl() + "/manage/settings/");
+		driver.findElement(By.xpath("//*[@id='settings_left']/div[1]/div/div/table/tbody/tr[1]/td[2]/span[2]/a")).click();
+	    driver.findElement(By.name("name")).clear();
+	    driver.findElement(By.name("name")).sendKeys("pruebascalidad1");
+	    driver.findElement(By.name("year")).clear();
+	    driver.findElement(By.name("year")).sendKeys("1989");
+	    driver.findElement(By.cssSelector("textarea[name=\"interests\"]")).clear();
+	    driver.findElement(By.cssSelector("textarea[name=\"interests\"]")).sendKeys("Calidad del Software.");
+	    driver.findElement(By.id("written_state")).clear();
+	    driver.findElement(By.id("written_state")).sendKeys("Cádiz");
+	    driver.findElement(By.id("city")).clear();
+	    driver.findElement(By.id("city")).sendKeys("Puerto Real");
+	    driver.findElement(By.cssSelector("button.b-flatbutton")).click();
+
 	}
 
 	@After
