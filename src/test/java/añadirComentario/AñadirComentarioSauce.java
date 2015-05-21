@@ -20,7 +20,7 @@ public class AñadirComentarioSauce {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests();
+  private SauceTests sauce = new SauceTests("Añadir Comentario");
   
   @Before
   public void setUp() throws Exception {
