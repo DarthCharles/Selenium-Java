@@ -29,8 +29,7 @@ public class SauceTests {
 		capabilities = navegador;
 		capabilities.setCapability("version", version);
 		capabilities.setCapability("platform", platform);
-        capabilities.setCapability("name", this.name );
-
+		capabilities.setCapability("name", this.name );
 	}
 
 	public WebDriver WindowsFirefoxDriver() throws MalformedURLException{
@@ -39,7 +38,7 @@ public class SauceTests {
 	}
 
 	public WebDriver MacSafariDriver() throws MalformedURLException{
-		this.setCapabilities(DesiredCapabilities.safari(), "44.0.2403.9", Platform.MAC, this.name);
+		this.setCapabilities(DesiredCapabilities.safari(), "8", Platform.YOSEMITE, this.name);
 		return new RemoteWebDriver(url, capabilities);
 	}
 
