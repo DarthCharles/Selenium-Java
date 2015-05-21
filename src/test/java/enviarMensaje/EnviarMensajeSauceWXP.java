@@ -21,7 +21,7 @@ public class EnviarMensajeSauceWXP {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests("Enviar mensaje Windows XP Firefox");
+  private SauceTests sauce = new SauceTests("Enviar mensaje Windows XP");
 
 
   @Before
@@ -37,8 +37,8 @@ public class EnviarMensajeSauceWXP {
   public void testEnviarMensajeWXP() throws Exception {
 		fox.getLogin(driver);
 
-    driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav[2]/ul/li[2]/a/span")).click();
-    driver.findElement(By.xpath("//input[@value='Mensaje Nuevo']")).click();
+    driver.get("http://www.livejournal.com/inbox/");
+    driver.findElement(By.xpath("//input[@value='New Message']")).click();
     driver.findElement(By.xpath("//input[@id='msg_to']")).clear();
     driver.findElement(By.xpath("//input[@id='msg_to']")).sendKeys("DarthCharles");
     driver.findElement(By.xpath("//input[@name='msg_subject']")).clear();

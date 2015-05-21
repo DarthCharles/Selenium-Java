@@ -21,7 +21,7 @@ public class ImagenesUsuariosSauceMac {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests("Enviar mensaje Mac Safari");
+  private SauceTests sauce = new SauceTests("Editar imagen OSX");
 
 
   @Before

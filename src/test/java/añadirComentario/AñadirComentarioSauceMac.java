@@ -20,7 +20,7 @@ public class AñadirComentarioSauceMac {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests("Añadir Comentario Mac Safari");
+  private SauceTests sauce = new SauceTests("Añadir Comentario OSX");
   
   @Before
   public void setUp() throws Exception {
