@@ -14,24 +14,24 @@ import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class AñadirComentarioSauce {
+public class AñadirComentarioSauceMac {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private Firefox fox = new Firefox();
-  private SauceTests sauce = new SauceTests("Añadir Comentario");
+  private SauceTests sauce = new SauceTests("Añadir Comentario Mac Safari");
   
   @Before
   public void setUp() throws Exception {
-    driver = sauce.WindowsFirefoxDriver();
+    driver = sauce.MacSafariDriver();
     baseUrl = "http://www.livejournal.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     fox.initDriver(driver);
   }
 
   @Test
-  public void testAnAdirComentario() throws Exception {
+  public void testAnAdirComentarioMac() throws Exception {
 		fox.getLogin(driver);
 
     driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
