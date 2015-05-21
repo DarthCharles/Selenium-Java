@@ -12,28 +12,32 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import sauceLabs.SauceTests;
 import SELENIUM.CS.Firefox;
 
-public class NuevaEntrada {
+
+
+public class NuevaEntradaSauceWXP {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private Firefox fox = new Firefox();
+	private SauceTests sauce = new SauceTests("Nueva Entrada");
+
 
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
-		fox.initDriver(driver);
+		driver = sauce.WindowsFirefoxDriver();
+	    fox.initDriver(driver);
 	}
 
 	@Test
 	public void testAgregarEntrada() throws Exception {
 		fox.getLogin(driver);
 		driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();
-		driver.findElement(By.className(".w-cs-menu--primary")).click();
-		driver.findElement(By.linkText("Post to journal")).click();
+        driver.get(fox.getBaseUrl() + "/update.bml");
 		driver.findElement(By.id("subject")).clear();
 		driver.findElement(By.id("subject")).sendKeys("Nueva Entrada6");
 		driver.findElement(By.id("body")).clear();

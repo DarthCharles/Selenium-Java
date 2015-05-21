@@ -21,7 +21,6 @@ public class Firefox {
 		    driver.findElement(By.id("lj_loginwidget_password")).clear();
 		    driver.findElement(By.id("lj_loginwidget_password")).sendKeys("Calidad123");
 		    driver.findElement(By.name("action:login")).click();
-		  
 	}
 	
 	public String getBaseUrl() {
