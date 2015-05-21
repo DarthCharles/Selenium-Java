@@ -13,14 +13,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import sauceLabs.SauceTests;
-import SELENIUM.CS.Firefox;
+import SELENIUM.CS.CustomDriver;;
 
 public class EnviarMensajeSauceMac {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-  private Firefox fox = new Firefox();
+  private CustomDriver fox = new CustomDriver();
   private SauceTests sauce = new SauceTests("Enviar mensaje OSX");
 
 
