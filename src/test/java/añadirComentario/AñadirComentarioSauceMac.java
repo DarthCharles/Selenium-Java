@@ -31,7 +31,7 @@ public class AñadirComentarioSauceMac {
   }
 
   @Test
-  public void testAnAdirComentario() throws Exception {
+  public void testAnAdirComentarioMac() throws Exception {
 		fox.getLogin(driver);
 
     driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav/ul[2]/li/a/span")).click();

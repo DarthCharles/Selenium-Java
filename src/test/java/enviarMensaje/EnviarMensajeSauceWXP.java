@@ -34,7 +34,7 @@ public class EnviarMensajeSauceWXP {
   }
 
   @Test
-  public void testEnviarMensaje() throws Exception {
+  public void testEnviarMensajeWXP() throws Exception {
 		fox.getLogin(driver);
 
     driver.findElement(By.xpath("//html[@id='js']/body/div[4]/header/div/nav[2]/ul/li[2]/a/span")).click();

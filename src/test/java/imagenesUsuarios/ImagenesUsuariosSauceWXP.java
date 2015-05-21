@@ -34,7 +34,7 @@ public class ImagenesUsuariosSauceWXP {
   }
 
   @Test
-  public void testImagenesUsuariosNormal() throws Exception {
+  public void testImagenesUsuariosWXP() throws Exception {
 	fox.getLogin(driver);
 	driver.findElement(By.cssSelector("span.s-nav-rootlink-blog-title")).click();
 	driver.findElement(By.cssSelector("a[href='http://www.livejournal.com/editpics.bml']")).click();
