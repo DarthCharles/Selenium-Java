@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import SELENIUM.CS.Firefox;
 
-public class AñadirComentarioSauce {
+public class AñadirComentarioSauceMac {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
