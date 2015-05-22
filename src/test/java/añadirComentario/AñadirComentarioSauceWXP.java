@@ -25,8 +25,6 @@ public class AñadirComentarioSauceWXP {
   @Before
   public void setUp() throws Exception {
     driver = sauce.WindowsFirefoxDriver();
-    baseUrl = "http://www.livejournal.com/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     fox.initDriver(driver);
   }
 
